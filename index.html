@@ -144,10 +144,29 @@ body{
 .hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .hero-photos{position:absolute;inset:0;display:flex;}
 .hp-l,.hp-r{flex:1;overflow:hidden;position:relative;}
-.hp-l img,.hp-r img{width:100%;height:100%;object-fit:cover;object-position:center 12%;filter:brightness(.35) saturate(.7);transform:scale(1.06);transition:transform 10s ease;}
-.hp-l::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(3,13,8,.7) 0%,rgba(3,13,8,.05) 100%);}
-.hp-r::after{content:'';position:absolute;inset:0;background:linear-gradient(to left,rgba(3,13,8,.7) 0%,rgba(3,13,8,.05) 100%);}
+.hero-photos {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
 
+/* Ligne 147 : On nettoie l'image (plus de filtre sombre) */
+.hp-l img, .hp-r img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center 12%; 
+}
+
+/* Lignes 148-149 : Un voile radial uniquement au centre pour le texte */
+.hero-photos::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(3, 13, 8, 0.6) 0%, rgba(3, 13, 8, 0.3) 40%, transparent 75%);
+  pointer-events: none;
+  z-index: 1;
+}
 /* Islamic geometric center divider */
 .hero-divider{
   position:absolute;left:50%;top:0;bottom:0;
@@ -490,7 +509,7 @@ body{
       <div class="date-year">2026</div>
       <div class="date-hijri">٢٦ محرم ١٤٤٨ هـ</div>
       <div class="gold-rule" style="margin:16px auto;"><div class="gr-line"></div><div class="gr-star"></div><div class="gr-line"></div></div>
-      <div class="date-time">Cérémonie à partir de 15h00</div>
+      <div class="date-time">Cérémonie à partir de 11h00</div>
     </div>
   </div>
 
